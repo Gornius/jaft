@@ -6,7 +6,7 @@ After countdown you will hear a sound, and you can cancel the sound with `CTRL+C
 
 The only requirement is `go` installed as well as adding go bin path to your PATH, then run:
 ```bash
-go install github.com/gornius/jaft`
+go install github.com/gornius/jaft
 ```
 
 # Usage
