@@ -24,15 +24,20 @@ func run() error {
 		return err
 	}
 
-	time.Sleep(duration)
-
-	if err := beepIndefinitely(); err != nil {
+	finished, err := displayTimerAndWait(duration)
+	if err != nil {
 		return err
 	}
 
-	ch := make(chan os.Signal, 1)
-	signal.Notify(ch)
-	<-ch
+	if finished {
+		if err := beepIndefinitely(); err != nil {
+			return err
+		}
+
+		ch := make(chan os.Signal, 1)
+		signal.Notify(ch)
+		<-ch
+	}
 
 	return nil
 }
