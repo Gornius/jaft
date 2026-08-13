@@ -14,8 +14,8 @@ import (
 )
 
 func run() error {
-	if len(os.Args) < 1 {
-		return fmt.Errorf("no time has been declared")
+	if len(os.Args) < 2 {
+		return fmt.Errorf("not enough arguments")
 	}
 
 	durationString := os.Args[1]
@@ -65,7 +65,7 @@ func beepIndefinitely() error {
 func main() {
 	if err := run(); err != nil {
 		fmt.Println(err.Error())
-		fmt.Println("Usage: jaft duration (e.g. \"300ms\", \"-1.5h\" or \"2h45m\")")
+		fmt.Println("Usage: jaft DURATION (e.g. \"300ms\", \"-1.5h\" or \"2h45m\")")
 		os.Exit(1)
 	}
 }
