@@ -51,7 +51,7 @@ func (m teaModel) View() tea.View {
 // and then returns true if it successfully ends, otherwise returns false (e.g. when user aborted timer)
 func displayTimerAndWait(duration time.Duration) (bool, error) {
 	m := teaModel{
-		timer: timer.New(duration, timer.WithInterval(100*time.Millisecond)),
+		timer: timer.New(duration, timer.WithInterval(time.Second)),
 	}
 	um, err := tea.NewProgram(m).Run()
 	if err != nil {
