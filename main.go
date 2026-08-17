@@ -63,6 +63,7 @@ func beepIndefinitely() error {
 	speaker.Play(beep.Seq(loop, beep.Callback(func() {
 		done <- true
 	})))
+	<-done
 
 	return nil
 }
